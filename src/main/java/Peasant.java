@@ -4,4 +4,13 @@ public class Peasant extends BasicHero{
 
     }
 
+    @Override
+    public void step() {
+
+    }
+
+    public String getInfo(){
+        return "Name="+name+" "+"type="+type+" "+"id="+id+" "+"health="+healthLevel+" "+"attack="
+                +attackLevelBase+" "+"initiative="+initiative;
+    }
 }

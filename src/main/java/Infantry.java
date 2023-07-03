@@ -4,4 +4,14 @@ public abstract class Infantry extends BasicHero{
         this.speed=speed;
     }
     public int speed;
+
+    public String getInfo(){
+        return "Name="+name+" "+"type="+type+" "+"id="+id+" "+"health="+healthLevel+" "+"attack="
+                +attackLevelBase+" "+"initiative="+initiative+" "+"speed="+speed;
+    }
+
+    @Override
+    public void step() {
+
+    }
 }

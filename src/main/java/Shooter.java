@@ -4,4 +4,14 @@ public abstract class Shooter extends BasicHero{
         this.distance=distance;
     }
     public int distance;
+
+    public String getInfo(){
+        return "Name="+name+" "+"type="+type+" "+"id="+id+" "+"health="+healthLevel+" "+"attack="
+                +attackLevelBase+" "+"initiative="+initiative+" "+"distance="+distance;
+    }
+
+    @Override
+    public void step() {
+
+    }
 }

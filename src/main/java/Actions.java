@@ -1,2 +1,6 @@
-package PACKAGE_NAME;public interface Actions {
+public interface Actions {
+    void step();                //public по умолчанию
+
+    String getInfo();
+
 }

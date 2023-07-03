@@ -4,4 +4,13 @@ public abstract class Wizard extends BasicHero{
         this.heal = heal;
     }
     public int heal;
+
+    public String getInfo(){
+        return "Name="+name+" "+"type="+type+" "+"id="+id+" "+"health="+healthLevel+" "+"attack="
+                +attackLevelBase+" "+"initiative="+initiative+" "+"heal="+heal;
+    }
+
+    public void step(){
+
+    }
 }

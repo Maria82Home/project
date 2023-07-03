@@ -1,4 +1,4 @@
-public abstract class BasicHero {
+public abstract class BasicHero implements Actions{
     int id;
     int healthLevel;
     String name;

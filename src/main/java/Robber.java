@@ -3,4 +3,6 @@ public class Robber extends Infantry{
         super(2, 100, name, "Robber", 10, 3,60);
     }
 
+
+
 }
