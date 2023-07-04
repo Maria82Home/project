@@ -1,6 +1,6 @@
 public class Peasant extends BasicHero{
-    public Peasant(String name) {
-        super(6, 100, name, "Peasant", 1, 2);
+    public Peasant(String name,int x, int y) {
+        super(6, 100, name, "Peasant", 1, 2, x, y);
 
     }
 
@@ -11,6 +11,6 @@ public class Peasant extends BasicHero{
 
     public String getInfo(){
         return "Name="+name+" "+"type="+type+" "+"id="+id+" "+"health="+healthLevel+" "+"attack="
-                +attackLevelBase+" "+"initiative="+initiative;
+                +attackLevelBase+" "+"initiative="+initiative+" "+"x="+place.x+" "+"y="+place.y;
     }
 }
