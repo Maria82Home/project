@@ -1,6 +1,7 @@
 import Units.*;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Random;
 
 //Проанализировать и описать персонажей: Маг, монах, разбойник, копейщик, снайпер, арбалетчик,
@@ -54,14 +55,26 @@ public class Main {
                     break;
             }
         }
+        ArrayList<BasicHero> unitedTeam = new ArrayList<>();
+        unitedTeam.addAll(team1);
+        unitedTeam.addAll(team2);
+        unitedTeam.sort((o1, o2) -> o2.getInitiative()-o1.getInitiative());
+
         System.out.println("Team1");
         team1.forEach(i -> System.out.println(i.getInfo()));
         System.out.println("Team2");
         team2.forEach((i -> System.out.println(i.getInfo())));
 
-        System.out.println("Team1 enemies: ");
-        team1.forEach(n -> n.step(team2));
-        System.out.println("Team2 enemies: ");
-        team2.forEach(n -> n.step(team1));
+
+        for (BasicHero item:unitedTeam){
+            if(team1.contains(item)) item.step(team2,team1);
+            else item.step(team1,team2);
+            System.out.println(item.getInitiative());
+        }
+
+        System.out.println("Team1");
+        team1.forEach(i -> System.out.println(i.getInfo()));
+        System.out.println("Team2");
+        team2.forEach((i -> System.out.println(i.getInfo())));
     }
 }

@@ -15,8 +15,8 @@ public abstract class Wizard extends BasicHero {
     }
 
     @Override
-    public void step(ArrayList<BasicHero> enemies) {
-        int[] temp = findNearestEnemy(enemies);
-        System.out.println("Distance="+temp[0]+" enemy's name="+enemies.get(temp[1]).name);
+    public void step(ArrayList<BasicHero> enemies, ArrayList<BasicHero> ours) {
+//        int[] temp = findNearestEnemy(enemies);
+//        System.out.println("Distance="+temp[0]+" enemy's name="+enemies.get(temp[1]).name);
     }
 }
