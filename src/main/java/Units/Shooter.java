@@ -3,17 +3,16 @@ package Units;
 import java.util.ArrayList;
 
 public abstract class Shooter extends BasicHero {
-    public Shooter(int id, int healthLevel, String name, String type, int attackLevelBase, int initiative, int distance, int shoots, int x, int y) {
+    public Shooter(int id, int healthLevel, String name, String type, int attackLevelBase, int initiative, int shoots, int x, int y) {
         super(id, healthLevel, name, type, attackLevelBase, initiative, x, y);
-        this.distance=distance;
         this.shoots = shoots;
     }
     public int distance;
     public int shoots;
 
     public String getInfo(){
-        return "Name="+name+" "+"type="+type+" "+"id="+id+" "+"health="+healthLevel+" "+"attack="
-                +attackLevelBase+" "+"initiative="+initiative+" "+"distance="+distance+" "+"shoots="+shoots+" "+"x="+place.x+" "+"y="+place.y;
+        return name+" "+type+" "+"\u2661 "+healthLevel+" "+"\u2694 "
+                +attackLevelBase+" "+"initiative="+initiative+" "+"shoots="+shoots;
     }
 
     @Override
@@ -27,7 +26,10 @@ public abstract class Shooter extends BasicHero {
         temp.healthLevel = temp.healthLevel - this.attackLevelBase;
 
         for (BasicHero item: ours){
-            if (item.type.contains("Peasant")) return;
+            if (item.type.contains("Peasant") && !((Peasant)(item)).busy && item.healthLevel>0) {
+                ((Peasant)(item)).busy = true;
+                return;
+            }
         }
 
         this.shoots--;

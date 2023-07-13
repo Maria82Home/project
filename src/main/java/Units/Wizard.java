@@ -10,13 +10,29 @@ public abstract class Wizard extends BasicHero {
     public int heal;
 
     public String getInfo(){
-        return "Name="+name+" "+"type="+type+" "+"id="+id+" "+"health="+healthLevel+" "+"attack="
-                +attackLevelBase+" "+"initiative="+initiative+" "+"heal="+heal+" "+"x="+place.x+" "+"y="+place.y;
+        return name+" "+type+" "+"\u2661 "+healthLevel+" "+"\u2694 "
+                +attackLevelBase+" "+"initiative="+initiative+" "+"heal="+heal;
     }
-
     @Override
     public void step(ArrayList<BasicHero> enemies, ArrayList<BasicHero> ours) {
+
+        if (this.healthLevel > 0 ) {
+
+            for (BasicHero item : ours) {
+                if (item.healthLevel < 90) {
+                    item.healthLevel += this.heal;
+                    System.out.println(this.name+" healed "+item.name);
+                    return;
+                }
+            }
+            BasicHero temp = findNearestEnemy(enemies);
+            temp.healthLevel = temp.healthLevel - this.heal;
+            System.out.println(this.name+" attacked "+temp.name);
+        }
+    }
+//    @Override
+//    public void step(ArrayList<BasicHero> enemies, ArrayList<BasicHero> ours) {
 //        int[] temp = findNearestEnemy(enemies);
 //        System.out.println("Distance="+temp[0]+" enemy's name="+enemies.get(temp[1]).name);
     }
-}
+

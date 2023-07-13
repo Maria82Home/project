@@ -20,5 +20,22 @@ public enum Names {
     Kira,
     Nadiya,
     Maria,
-    Sara
+    Sara,
+    Nina,
+    Tom,
+    Bob,
+    Jim,
+    Jack,
+    Pavel,
+    Petr,
+    Greg,
+    Timon,
+    Travis,
+    Leonardo,
+    Timofei,
+    Fedor,
+    Gleb,
+    Klim,
+    Vasya,
+    Borya
 }
