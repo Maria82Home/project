@@ -15,8 +15,38 @@ public abstract class Infantry extends BasicHero {
 
     @Override
     public void step(ArrayList<BasicHero> enemies,ArrayList<BasicHero> ours) {
-//        int[] temp = findNearestEnemy(enemies);
-//        System.out.println("Distance="+temp[0]+" enemy's name="+enemies.get(temp[1]).name);
+        if (this.healthLevel<=0) return;
+        BasicHero nearestEnemy = findNearestEnemy(enemies);
+        if(this.place.calcDistance(nearestEnemy.place)<2){
+//            nearestEnemy.healthLevel=nearestEnemy.healthLevel-this.attackLevelBase;
+            nearestEnemy.getDamage(this.attackLevelBase);
+            return;
+        }
+
+        Coordinates tmpc = new Coordinates(place.x, place.y);
+        if(Math.abs(this.place.x-nearestEnemy.place.x)>Math.abs(this.place.y - nearestEnemy.place.y)) {
+            if (this.place.x < nearestEnemy.place.x) {
+                tmpc.x += 1;
+
+            } else {
+                tmpc.x -= 1;
+            }
+        }
+        else{
+            if (this.place.y < nearestEnemy.place.y) {
+                this.place.y = this.place.y + 1;
+
+            } else {
+                this.place.y = this.place.y - 1;
+            }
+        }
+        boolean flag = false;
+        for (BasicHero item:ours){
+            if(item.place.x == tmpc.x & item.place.y == tmpc.y & item.healthLevel>0) flag = true;
+        }
+        if (flag) return;
+        this.place.x = tmpc.x;
+        this.place.y = tmpc.y;
     }
 
 }

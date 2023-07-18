@@ -41,12 +41,17 @@ public abstract class BasicHero implements Actions {
     public String toString() {
         return super.getClass().getSimpleName();
     }
+    protected void getDamage (float damage){
+        healthLevel -= damage;
+        if (healthLevel <= 0) healthLevel = 0;
+        return;
+    }
 
     protected BasicHero findNearestEnemy(ArrayList<BasicHero> enemies) {
         double min = 100000;
         int count = 0;
         for (int i = 0 ; i<enemies.size(); i++){
-            if (place.calcDistance(enemies.get(i).place) < min){
+            if ((place.calcDistance(enemies.get(i).place) < min)&(enemies.get(i).healthLevel>0)){
                 min = place.calcDistance(enemies.get(i).place);
                 count = i;
             }

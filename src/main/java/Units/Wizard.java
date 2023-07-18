@@ -19,14 +19,15 @@ public abstract class Wizard extends BasicHero {
         if (this.healthLevel > 0 ) {
 
             for (BasicHero item : ours) {
-                if (item.healthLevel < 90) {
+                if (item.healthLevel < 90 & item.healthLevel >0) {
                     item.healthLevel += this.heal;
                     System.out.println(this.name+" healed "+item.name);
                     return;
                 }
             }
             BasicHero temp = findNearestEnemy(enemies);
-            temp.healthLevel = temp.healthLevel - this.heal;
+            temp.getDamage(this.heal);
+//            temp.healthLevel = temp.healthLevel - this.heal;
             System.out.println(this.name+" attacked "+temp.name);
         }
     }
